@@ -156,7 +156,7 @@ export default function (pi: ExtensionAPI) {
   }
 
   function report(job: Job, complete = false) {
-    const summary = { job_id: job.id, status: job.status, completed: job.completed, total: job.total, result_total: job.results.length, error: job.error }; 
+    const summary = { job_id: job.id, status: job.status, completed: job.completed, total: job.total, result_total: job.results.length, error: job.error };
     pi.sendMessage({
       customType: "kev_decide",
       content: JSON.stringify(complete ? { ...summary, note: "Use kev_decide_status with offset and limit to retrieve result pages." } : summary),
